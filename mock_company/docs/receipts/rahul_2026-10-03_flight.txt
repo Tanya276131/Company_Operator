@@ -1,0 +1,7 @@
+IndiGo e-Ticket Receipt
+Passenger: Rahul Sharma
+Route: Bhubaneswar (BBI) -> Bengaluru (BLR)
+Class: Economy
+Date of travel: 2026-10-03
+Total fare paid: INR 7850.00
+Payment: Corporate card ending 4417

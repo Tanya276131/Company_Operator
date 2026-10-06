@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*.db
+*.db-wal
+*.db-shm
+artifacts/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# NOTE: recordings/ is committed on purpose (lets reviewers replay runs without API keys)

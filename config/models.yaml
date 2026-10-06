@@ -1,0 +1,33 @@
+# Role -> ordered candidates (first = primary, rest = automatic failover).
+# Model names come from env vars (see .env.example) so a provider deprecating a model
+# never requires a code change. VERIFY the defaults against each provider's current list.
+#
+# Design note: planner/verifier use different providers on purpose so their mistakes
+# are less likely to be correlated.
+roles:
+  planner:
+    - {provider: gemini, model: "${GEMINI_FLASH_MODEL:-gemini-flash-latest}"}
+    - {provider: groq,   model: "${GROQ_TOOL_MODEL:-llama-3.3-70b-versatile}"}
+  executor:
+    - {provider: groq,   model: "${GROQ_TOOL_MODEL:-llama-3.3-70b-versatile}"}
+    - {provider: gemini, model: "${GEMINI_FLASH_MODEL:-gemini-flash-latest}"}
+  verifier:
+    - {provider: gemini, model: "${GEMINI_FLASH_MODEL:-gemini-flash-latest}"}
+    - {provider: groq,   model: "${GROQ_TOOL_MODEL:-llama-3.3-70b-versatile}"}
+  cheap:
+    - {provider: gemini, model: "${GEMINI_FLASHLITE_MODEL:-gemini-flash-lite-latest}"}
+    - {provider: groq,   model: "${GROQ_TOOL_MODEL:-llama-3.3-70b-versatile}"}
+  # To use a paid model for the hardest roles, put it first, e.g.:
+  # planner:
+  #   - {provider: anthropic, model: claude-sonnet-5-5}
+
+# Requests-per-minute budget per provider (conservative free-tier defaults; tune to your account).
+providers:
+  gemini: {rpm: 8}
+  groq: {rpm: 20}
+  anthropic: {rpm: 40}
+
+retry:
+  max_retries: 3          # per candidate, on transient errors (429 / 5xx / timeouts)
+  base_delay_s: 1.0
+  max_delay_s: 20.0

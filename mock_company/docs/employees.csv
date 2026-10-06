@@ -1,0 +1,6 @@
+id,name,email,manager_id,department
+E001,Rahul Sharma,rahul.sharma@acme.example,E010,Engineering
+E002,Priya Nair,priya.nair@acme.example,E010,Engineering
+E003,Aarav Mehta,aarav.mehta@acme.example,E011,Sales
+E010,Meera Iyer,meera.iyer@acme.example,,Engineering
+E011,Kabir Singh,kabir.singh@acme.example,,Sales

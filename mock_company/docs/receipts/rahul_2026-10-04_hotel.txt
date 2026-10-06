@@ -1,0 +1,5 @@
+Lakeview Business Hotel Invoice
+Guest: Rahul Sharma
+Check-in: 2026-10-03  Check-out: 2026-10-04  (1 night)
+Room rate: INR 6800.00 per night
+Total: INR 6800.00

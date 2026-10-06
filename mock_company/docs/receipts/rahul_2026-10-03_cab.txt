@@ -1,0 +1,5 @@
+QuickCab Trip Receipt
+Rider: Rahul Sharma
+Date: 2026-10-03
+Trip: BLR Airport -> Whitefield office
+Fare: INR 1240.00
